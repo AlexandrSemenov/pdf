@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/jquery.fileupload.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>jQuery File Upload Example</title>
+    <style>
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <form id="form" action="#" method="post">
+        <span class="btn btn-success fileinput-button">
+            <i class="glyphicon glyphicon-plus"></i>
+            <span>Добавить файл...</span>
+            <input id="file" name="file" type="file">
+        </span>
+        <input class="btn btn-primary" type="submit" value="Загрузить">
+    </form>
+
+    <table id="table" class="table table-striped">
+        <thead>
+            <th>ID</th>
+            <th>Назавание файла</th>
+            <th>Просмотр</th>
+            <th>Редактирование</th>
+            <th>Удаление</th>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+<div class="modal-wrapp">
+    <div class="modal-view">
+        <div class="close">x</div>
+        <embed src="" width="500" height="375" type='application/pdf'>
+    </div>
+    <div class="modal-edit">
+        <div class="close">x</div>
+        <embed src="" width="500" height="375" type='application/pdf'>
+        <form id="form-edit" action="">
+            <lable for="rotate">Повернуть страницу: </lable>
+            <select name="page" id="rotate"></select>
+            <input id="path" type="hidden" name="pdf_path" value="">
+            <input class="btn btn-primary" type="submit" value="повернуть">
+        </form>
+    </div>
+</div>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="js/index.js"></script>
+</body>
+</html>
