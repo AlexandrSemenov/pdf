@@ -35,7 +35,7 @@ $('document').ready(function(){
         });
     }
 
-    $('#form-edit').on('submit', function(e){
+    $('.rotate-page').on('click', function(e){
         e.preventDefault();
 
         $.ajax({
@@ -48,8 +48,22 @@ $('document').ready(function(){
         });
     });
 
+    $('.delete-page').on('click', function(e){
+        e.preventDefault();
+
+        $.ajax({
+            method: "POST",
+            url: "api/delete-page",
+            data: $('#form-edit').serialize(),
+            success: function(){
+                alert('PDF изменен');
+            }
+        });
+    });
+
     $('.close').click(function(){
-        $('.modal-wrapp, .modal-view').css('display', 'none');
+        $('.modal-wrapp, .modal-view, .modal-edit').css('display', 'none');
+        $('embed').attr('src', '');
         $('select').empty();
         $('#path').attr('value', '');
     });

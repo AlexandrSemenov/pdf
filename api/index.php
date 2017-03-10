@@ -4,6 +4,7 @@ ini_set('display_errors', 1);
 require_once "../lib/php/vendor/autoload.php";
 require_once "db.php";
 require_once"../lib/php/PdfRotate.php";
+require_once"../lib/php/PdfDelete.php";
 require_once "../lib/php/vendor/propa/tcpdi/tcpdi.php";
 
 $app = new \Slim\Slim();
@@ -114,8 +115,13 @@ $app->post('/rotate', function(){
 
     $file = $_SERVER['DOCUMENT_ROOT'] . $path;
 
-    $pdfrotate = new PdfRotate();
-    $pdfrotate->rotatePDF($file, 90, $page);
+    $pdfRotate = new PdfRotate();
+    $pdfRotate->rotatePDF($file, 90, $page);
+});
+
+$app->post('/delete-page', function(){
+    $pdfDelete = new PdfDelete();
+    $pdfDelete->deletePdf($_SERVER['DOCUMENT_ROOT'] . '/uploads/pdf-sample3.pdf', 2);
 });
 
 $app->run();
