@@ -120,8 +120,13 @@ $app->post('/rotate', function(){
 });
 
 $app->post('/delete-page', function(){
+    $path = $_POST['pdf_path'];
+    $page = $_POST['page'];
+
+    $file = $_SERVER['DOCUMENT_ROOT'] . $path;
+
     $pdfDelete = new PdfDelete();
-    $pdfDelete->deletePdf($_SERVER['DOCUMENT_ROOT'] . '/uploads/pdf-sample3.pdf', 2);
+    $pdfDelete->deletePdf($file, $page);
 });
 
 $app->run();
